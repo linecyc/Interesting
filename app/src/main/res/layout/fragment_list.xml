@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+  <data>
+    <variable
+        name="listViewModel"
+        type="com.linecy.interesting.viewmodel.ListViewModel"
+        />
+  </data>
+
+  <com.linecy.interesting.ui.misc.ViewContainer
+      android:id="@+id/viewContainer"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:inAnimation="@android:anim/fade_in"
+      android:outAnimation="@android:anim/fade_out"
+      app:displayedChildId="@+id/swipeLayout"
+      displayedChildStatus="@{listViewModel.viewStatus}"
+      >
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        loading="@{listViewModel.isRefreshing}"
+        >
+
+      <android.support.v7.widget.RecyclerView
+          android:id="@+id/recyclerView"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:loadAdapter="@{listViewModel.data}"
+          />
+    </android.support.v4.widget.SwipeRefreshLayout>
+  </com.linecy.interesting.ui.misc.ViewContainer>
+</layout>
