@@ -7,4 +7,4 @@ import kotlinx.android.parcel.Parcelize
  * @author by linecy.
  */
 @Parcelize
-class ListData(val url: String?, val item: List<ListItem>) : Parcelable
+class ListData(val header: List<String>, val item: List<ListItem>) : Parcelable

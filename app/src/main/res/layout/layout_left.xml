@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutLeft"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#ff0000"
+    >
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:maxLines="1"
+      android:padding="10dp"
+      android:text="left"
+      />
+</android.support.constraint.ConstraintLayout>

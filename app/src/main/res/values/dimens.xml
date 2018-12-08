@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <!-- font sizes -->
+  <dimen name="font_largest">32sp</dimen>
+  <dimen name="font_larger">28sp</dimen>
+  <dimen name="font_large">24sp</dimen>
+  <dimen name="font_little_large">20sp</dimen>
+  <dimen name="font_middle">18sp</dimen>
+  <dimen name="font_normal">16sp</dimen>
+  <dimen name="font_small">14sp</dimen>
+  <dimen name="font_smaller">12sp</dimen>
+  <dimen name="font_smallest">10sp</dimen>
+  <dimen name="font_extra_small">8sp</dimen>
+
+  <!--margin size-->
+  <dimen name="margin_normal">16dip</dimen>
+  <dimen name="margin_small">12dip</dimen>
+  <dimen name="margin_small_normal">10dip</dimen>
+  <dimen name="margin_smaller">8dip</dimen>
+  <dimen name="margin_smallest">6dip</dimen>
+  <dimen name="margin_extra_small">4dip</dimen>
+
+  <!--padding size-->
+  <dimen name="padding_middle">20dip</dimen>
+  <dimen name="padding_normal">16dip</dimen>
+  <dimen name="padding_small">12dip</dimen>
+  <dimen name="padding_smaller">8dip</dimen>
+  <dimen name="padding_smallest">6dip</dimen>
+  <dimen name="padding_extra_small">4dip</dimen>
+  <dimen name="padding_extreme_small">2dip</dimen>
+
+  <!--animation duration time(ms)-->
+  <integer name="anim_duration_short">250</integer>
+  <integer name="anim_duration_normal">500</integer>
+  <integer name="anim_duration_long">1500</integer>
+
+</resources>

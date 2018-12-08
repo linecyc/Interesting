@@ -18,11 +18,15 @@ abstract class BaseFragment<VB : ViewDataBinding> : Fragment() {
   protected var fragmentBinding: VB? = null
   protected lateinit var viewModelProvider: ViewModelProvider
 
-  override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-      savedInstanceState: Bundle?): View? {
+  override fun onCreateView(
+    inflater: LayoutInflater, container: ViewGroup?,
+    savedInstanceState: Bundle?
+  ): View? {
     if (layoutResId() != 0) {
-      fragmentBinding = DataBindingUtil.inflate(inflater, layoutResId(), container,
-          false)
+      fragmentBinding = DataBindingUtil.inflate(
+        inflater, layoutResId(), container,
+        false
+      )
       return fragmentBinding?.root ?: inflater.inflate(layoutResId(), container, false)
     }
     return super.onCreateView(inflater, container, savedInstanceState)

@@ -13,7 +13,8 @@ class ViewModelFactory(application: Application) : ViewModelProvider.NewInstance
 
   @Suppress("UNCHECKED_CAST")
   override fun <T : ViewModel> create(modelClass: Class<T>): T = (when {
-    modelClass.isAssignableFrom(ListViewModel::class.java) -> ListViewModel()
+    modelClass.isAssignableFrom(RecyclerViewViewModel::class.java) -> RecyclerViewViewModel()
+    modelClass.isAssignableFrom(TransitionViewModel::class.java) -> TransitionViewModel()
     else -> throw IllegalArgumentException("unknown model class $modelClass")
   }) as T
 
@@ -24,9 +25,10 @@ class ViewModelFactory(application: Application) : ViewModelProvider.NewInstance
     private var INSTANCE: ViewModelFactory? = null
 
     fun getInstance(application: Application) = INSTANCE ?: synchronized(
-        ViewModelFactory::class.java) {
+      ViewModelFactory::class.java
+    ) {
       INSTANCE ?: ViewModelFactory(application)
-          .also { INSTANCE = it }
+        .also { INSTANCE = it }
     }
 
     @VisibleForTesting

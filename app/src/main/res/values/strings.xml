@@ -2,4 +2,30 @@
   <string name="app_name">有趣的东西~</string>
   <string name="error">加载异常</string>
   <string name="empty">没有数据~</string>
+
+  <string name="navigation_recycler_view">列表</string>
+  <string name="navigation_transition">动画</string>
+  <string name="navigation_profile">其他</string>
+  <string name="list_header">描述头部</string>
+  <string name="source_photo">原图</string>
+  <string name="blur_photo">高斯模糊半径为：10</string>
+
+  <!--bottom app bar-->
+  <string name="search">搜索</string>
+  <string name="menu">菜单</string>
+  <string name="menu_item_1">菜单1</string>
+  <string name="menu_item_2">菜单2</string>
+  <string name="menu_item_3">菜单3</string>
+  <string name="scale_down_show_behavior">com.linecy.interesting.ui.misc.ScaleDownShowBehavior</string>
+
+  <!--transition-->
+  <string name="transitionNameImage">image</string>
+  <string name="scene1">Scene1 竖直：红->黄->蓝->绿</string>
+  <string name="scene2">Scene2 环：红->黄->绿->蓝</string>
+  <string name="scene3">Scene3 环：蓝->红->黄->绿</string>
+  <string name="scene4">Scene4 环：绿->蓝->红->黄</string>
+  <string name="scene5">Scene5 环：黄->绿->蓝->红</string>
+  <string name="scene6">Scene6 环：红，绿变大</string>
+  <string name="slide">将视图从边缘（上、下、左、右）移入和移出，可以设置插值器来改变速率,可通过代码和创建transition动画来实现</string>
+
 </resources>

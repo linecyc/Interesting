@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <item
+      android:id="@+id/navigation_recycler_view"
+      android:icon="@drawable/ic_view_list_black_24dp"
+      android:title="@string/navigation_recycler_view"/>
+  <item
+      android:id="@+id/navigation_transition"
+      android:icon="@drawable/ic_photo_library_black_24dp"
+      android:title="@string/navigation_transition"/>
+  <item
+      android:id="@+id/navigation_profile"
+      android:icon="@drawable/ic_widgets_black_24dp"
+      android:title="@string/navigation_profile"/>
+
+</menu>

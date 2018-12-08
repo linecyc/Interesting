@@ -4,6 +4,8 @@
     package="com.linecy.interesting">
 
   <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.VIBRATE"/>
+
   <application
       android:name=".InterestingApplication"
       android:allowBackup="true"
@@ -22,6 +24,32 @@
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
+    <activity
+        android:name=".ui.transition.BottomSheetActivity"
+        android:screenOrientation="portrait"/>
+    <activity
+        android:name=".ui.gaussianblur.GaussianBlurActivity"
+        android:screenOrientation="portrait"/>
+    <activity
+        android:name=".ui.transition.TransitionActivity"
+        android:screenOrientation="portrait"/>
+    <activity
+        android:name=".ui.transition.SceneActivity"
+        android:screenOrientation="portrait"/>
+
+    <activity
+        android:name=".ui.transition.SlideActivity"
+        android:screenOrientation="portrait"/>
+    <activity
+        android:name=".ui.transition.ExplodeActivity"
+        android:screenOrientation="portrait"/>
+    <activity
+        android:name=".ui.transition.FadeActivity"
+        android:screenOrientation="portrait"/>
+    <activity
+        android:name=".ui.transition.SharedElementActivity"
+        android:screenOrientation="portrait"/>
+
   </application>
 
 </manifest>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding_normal"
+    tools:ignore="ContentDescription"
+    >
+
+  <ImageView
+      android:id="@+id/ivRed"
+      android:layout_width="96dp"
+      android:layout_height="96dp"
+      android:src="@drawable/ic_circle_red"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      />
+
+  <ImageView
+      android:id="@+id/ivYellow"
+      android:layout_width="96dp"
+      android:layout_height="96dp"
+      android:src="@drawable/ic_circle_yellow"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      />
+
+  <ImageView
+      android:id="@+id/ivBlue"
+      android:layout_width="96dp"
+      android:layout_height="96dp"
+      android:src="@drawable/ic_circle_blue"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      />
+
+  <ImageView
+      android:id="@+id/ivGreen"
+      android:layout_width="96dp"
+      android:layout_height="96dp"
+      android:src="@drawable/ic_circle_green"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      />
+
+
+</android.support.constraint.ConstraintLayout>

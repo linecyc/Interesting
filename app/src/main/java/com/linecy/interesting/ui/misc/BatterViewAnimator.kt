@@ -7,8 +7,10 @@ import android.widget.ViewAnimator
 /**
  * @author by linecy.
  */
-abstract class BatterViewAnimator(context: Context?, attrs: AttributeSet?) : ViewAnimator(context,
-    attrs) {
+abstract class BatterViewAnimator(context: Context?, attrs: AttributeSet?) : ViewAnimator(
+  context,
+  attrs
+) {
 
   open fun setDisplayedChildId(id: Int) {
     if (id == getDisplayedChildId()) {

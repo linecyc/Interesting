@@ -1,17 +1,56 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-  <!-- Base application theme. -->
   <style name="AppTheme.Light" parent="Theme.AppCompat.Light.NoActionBar">
+    <!--底部导航栏icon居中显示 或者整个base theme parent="Theme.MaterialComponents.Light.NoActionBar"-->
+    <item name="bottomAppBarStyle">@style/BottomAppBar</item>
+
     <item name="colorAccent">@color/colorPrimaryDark</item>
     <item name="colorPrimary">@color/colorPrimary</item>
     <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-    <item name="android:textSize">16.0sp</item>
+    <item name="android:textSize">@dimen/font_normal</item>
     <item name="android:textColor">@color/textSecondary</item>
     <item name="android:windowBackground">@color/background</item>
     <item name="toolbarStyle">@style/ClubToolbar</item>
+    <!-- 想使用5.0的Activity过渡动画，就要加上这个，或者在代码里面设置 -->
+    <item name="android:windowContentTransitions" tools:targetApi="lollipop">true</item>
+
+    <!--下面的内容要在5.0上才好用,启用转换过程都会更加流畅自然,指定进入和退出的动画可以重叠 -->
+    <!-- 不叠加时，在中间有空白？？-->
+    <item name="android:windowAllowEnterTransitionOverlap">false</item>
+    <item name="android:windowAllowReturnTransitionOverlap">false</item>
+    <!--引用TransitionManager XML资源，定义不同窗口内容之间的所需转换-->
+    <!--<item name="android:windowContentTransitionManager"></item>-->
+    <!--共享元素在转换期间是否应使用叠加层-->
+    <item name="android:windowSharedElementsUseOverlay">false</item>
+    <!-- 指定我们使用sharedElement时的进入、退出、重新进入和返回动画 -->
+    <item name="android:windowSharedElementEnterTransition">@transition/change_bounds</item>
+    <item name="android:windowSharedElementExitTransition">@transition/change_bounds</item>
+    <item name="android:windowSharedElementReenterTransition">@transition/change_bounds</item>
+    <item name="android:windowSharedElementReturnTransition">@transition/change_bounds</item>
+    <!-- 指定进入和退出transitions,注意只对makeSceneTransitionAnimation -->
+    <!--界面 A 跳转至界面 B ：这时界面 A 是 退出（exit ）过渡状态，而对应的界面B是进入（enter）过渡状态。-->
+    <!--界面 B 返回到界面 A ：这时界面 A 是重新进入（reenter）过渡，而对应的界面B则是返回（return）过渡。-->
+    <item name="android:windowExitTransition">@transition/slide_bottom</item>
+    <item name="android:windowEnterTransition">@transition/slide_top</item>
+    <item name="android:windowReenterTransition">@transition/slide_top</item>
+    <item name="android:windowReturnTransition">@transition/slide_bottom</item>
   </style>
 
   <style name="ClubToolbar" parent="Widget.AppCompat.Toolbar">
     <item name="contentInsetStart">0dp</item><!-- 设置该属性解决空白部分-->
+  </style>
+
+  <!--底部导航栏样式，主要是为了navIcon居中 -->
+  <style name="BottomAppBar" parent="Widget.AppCompat.Toolbar">
+    <item name="backgroundTint">@color/colorPrimary</item>
+    <item name="fabCradleMargin" tools:ignore="PrivateResource">
+      @dimen/mtrl_bottomappbar_fab_cradle_margin
+    </item>
+    <item name="fabCradleRoundedCornerRadius" tools:ignore="PrivateResource">
+      @dimen/mtrl_bottomappbar_fab_cradle_rounded_corner_radius
+    </item>
+    <item name="fabCradleVerticalOffset" tools:ignore="PrivateResource">
+      @dimen/mtrl_bottomappbar_fab_cradle_vertical_offset
+    </item>
   </style>
 </resources>

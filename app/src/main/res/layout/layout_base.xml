@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/baseView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
+  <android.support.design.bottomappbar.BottomAppBar
+      android:id="@+id/bottomAppBar"
+      android:backgroundTint="@color/colorPrimary"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_gravity="bottom"
+      app:fabAlignmentMode="center"
+      app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
+      />
 
-</android.support.constraint.ConstraintLayout>
+  <android.support.design.widget.FloatingActionButton
+      android:id="@+id/bottomFab"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@drawable/ic_add_white_24dp"
+      app:borderWidth="0dp"
+      app:fabSize="mini"
+      app:layout_anchor="@id/bottomAppBar"
+      app:layout_behavior="@string/scale_down_show_behavior"
+      app:layout_scrollFlags="scroll|enterAlways|snap"
+      />
+
+
+</android.support.design.widget.CoordinatorLayout>

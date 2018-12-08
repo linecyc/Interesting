@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+  <data>
+    <variable
+        name="itemTransition"
+        type="com.linecy.interesting.data.ListItem"
+        />
+  </data>
+
+  <android.support.constraint.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/margin_normal"
+      tools:ignore="ContentDescription"
+      >
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layoutFront"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+      <ImageView
+          android:id="@+id/ivFront"
+          android:layout_width="0dp"
+          android:layout_height="0dp"
+          android:scaleType="fitXY"
+          android:transitionName="@string/transitionNameImage"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintDimensionRatio="16:9"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          loadRoundUrl="@{itemTransition.url}"
+          tools:src="@drawable/ic_launcher_background"
+          />
+
+      <TextView
+          android:id="@+id/tvFront"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:maxLines="1"
+          android:padding="@dimen/padding_normal"
+          android:text="@{itemTransition.name}"
+          android:textColor="@color/white"
+          android:textSize="@dimen/font_large"
+          app:layout_constraintEnd_toEndOf="@+id/ivFront"
+          app:layout_constraintStart_toStartOf="@+id/ivFront"
+          app:layout_constraintTop_toTopOf="@+id/ivFront"
+          tools:text="@string/search"
+          />
+      <ImageView
+          android:id="@+id/ivFrontFlip"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:padding="@dimen/padding_normal"
+          android:src="@drawable/ic_cached_white_24dp"
+          app:layout_constraintBottom_toBottomOf="@+id/ivFront"
+          app:layout_constraintEnd_toEndOf="@+id/ivFront"
+          />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layoutBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        >
+
+      <ImageView
+          android:id="@+id/ivBack"
+          android:layout_width="0dp"
+          android:layout_height="0dp"
+          android:scaleType="fitXY"
+          android:transitionName="@string/transitionNameImage"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintDimensionRatio="16:9"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          loadRoundUrl="@{itemTransition.url}"
+          tools:src="@drawable/ic_launcher_background"
+          />
+
+      <TextView
+          android:id="@+id/tvBack"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:maxLines="3"
+          android:padding="@dimen/padding_normal"
+          android:text="@{itemTransition.detail}"
+          android:textColor="@color/white"
+          android:textSize="@dimen/font_normal"
+          app:layout_constraintEnd_toEndOf="@+id/ivBack"
+          app:layout_constraintStart_toStartOf="@+id/ivBack"
+          app:layout_constraintTop_toTopOf="@+id/ivBack"
+          tools:text="@string/search"
+          />
+      <ImageView
+          android:id="@+id/ivBackFlip"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:padding="@dimen/padding_normal"
+          android:src="@drawable/ic_cached_white_24dp"
+          app:layout_constraintBottom_toBottomOf="@+id/ivBack"
+          app:layout_constraintEnd_toEndOf="@+id/ivBack"
+          />
+    </android.support.constraint.ConstraintLayout>
+
+
+  </android.support.constraint.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <group android:checkableBehavior="single">
+    <item
+        android:id="@+id/scene1"
+        android:icon="@drawable/ic_refresh_primary_24dp"
+        android:title="@string/scene1"/>
+    <item
+        android:id="@+id/scene2"
+        android:icon="@drawable/ic_refresh_primary_24dp"
+        android:title="@string/scene2"/>
+    <item
+        android:id="@+id/scene3"
+        android:icon="@drawable/ic_refresh_primary_24dp"
+        android:title="@string/scene3"/>
+    <item
+        android:id="@+id/scene4"
+        android:icon="@drawable/ic_refresh_primary_24dp"
+        android:title="@string/scene4"/>
+    <item
+        android:id="@+id/scene5"
+        android:icon="@drawable/ic_refresh_primary_24dp"
+        android:title="@string/scene5"/>
+    <item
+        android:id="@+id/scene6"
+        android:icon="@drawable/ic_refresh_primary_24dp"
+        android:title="@string/scene6"/>
+  </group>
+
+</menu>
