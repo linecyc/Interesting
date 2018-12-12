@@ -7,12 +7,14 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.MenuItem
+import com.linecy.interesting.BR
 import com.linecy.interesting.R
+import com.linecy.interesting.R.layout
 import com.linecy.interesting.data.Response
 import com.linecy.interesting.ui.BaseActivity
-import com.linecy.interesting.ui.adapter.TestAdapter
+import com.linecy.interesting.ui.adapter.CustomAdapter
 import com.linecy.interesting.ui.home.BottomDrawerFragment
-import kotlinx.android.synthetic.main.activity_transiton.recyclerView
+import kotlinx.android.synthetic.main.layout_recycler_view.recyclerView
 
 
 /**
@@ -28,7 +30,7 @@ class BottomSheetActivity : BaseActivity<ViewDataBinding>() {
 
   override fun onInitView(savedInstanceState: Bundle?) {
     setBottomFabImageResource(R.drawable.ic_arrow_upward_white_24dp)
-    val adapter = TestAdapter(this)
+    val adapter = CustomAdapter(this, intArrayOf(layout.layout_item), intArrayOf(BR.item))
     recyclerView.layoutManager = LinearLayoutManager(this)
     recyclerView.adapter = adapter
     adapter.refreshData(Response.createListData(10))
@@ -57,9 +59,9 @@ class BottomSheetActivity : BaseActivity<ViewDataBinding>() {
     if (bottomSheetDialog == null) {
       bottomSheetDialog = BottomSheetDialog(this)
       val view =
-        LayoutInflater.from(this).inflate(R.layout.layout_test, null, false)
-      val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewTest)
-      val adapter = TestAdapter(this)
+        LayoutInflater.from(this).inflate(R.layout.layout_recycler_view, null, false)
+      val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
+      val adapter = CustomAdapter(this, intArrayOf(R.layout.layout_item), intArrayOf(BR.item))
       recyclerView.layoutManager = LinearLayoutManager(this)
       recyclerView.adapter = adapter
       bottomSheetDialog?.setContentView(view)

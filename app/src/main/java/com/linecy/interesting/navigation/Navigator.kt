@@ -6,16 +6,19 @@ import android.content.Intent
 import android.transition.Explode
 import android.transition.Fade
 import android.transition.Slide
+import android.util.Pair
 import android.view.Gravity
 import android.view.View
+import com.linecy.interesting.data.ListItem
 import com.linecy.interesting.ui.gaussianblur.GaussianBlurActivity
 import com.linecy.interesting.ui.transition.BottomSheetActivity
+import com.linecy.interesting.ui.transition.CircularRevealActivity
 import com.linecy.interesting.ui.transition.ExplodeActivity
 import com.linecy.interesting.ui.transition.FadeActivity
 import com.linecy.interesting.ui.transition.SceneActivity
 import com.linecy.interesting.ui.transition.SharedElementActivity
+import com.linecy.interesting.ui.transition.SharedElementDetailActivity
 import com.linecy.interesting.ui.transition.SlideActivity
-import com.linecy.interesting.ui.transition.TransitionActivity
 
 /**
  * @author by linecy.
@@ -25,15 +28,16 @@ import com.linecy.interesting.ui.transition.TransitionActivity
 object Navigator {
 
   const val EXTRA_URL = "extra_url"
+  const val EXTRA_DATA = "extra_data"
 
 
   fun navigateToGaussianBlur(activity: Activity?, view: View, url: String?) {
     activity?.run {
-      val intent = Intent(activity, GaussianBlurActivity::class.java)
+      val intent = Intent(this, GaussianBlurActivity::class.java)
       intent.putExtra(EXTRA_URL, url)
       startActivity(
         intent, ActivityOptions.makeSceneTransitionAnimation(
-          activity,
+          this,
           view, view.transitionName
         ).toBundle()
       )
@@ -43,11 +47,11 @@ object Navigator {
 
   fun navigateToBottomSheet(activity: Activity?, view: View, url: String?) {
     activity?.run {
-      val intent = Intent(activity, BottomSheetActivity::class.java)
+      val intent = Intent(this, BottomSheetActivity::class.java)
       intent.putExtra(EXTRA_URL, url)
       startActivity(
         intent, ActivityOptions.makeSceneTransitionAnimation(
-          activity,
+          this,
           view, view.transitionName
         ).toBundle()
       )
@@ -57,7 +61,7 @@ object Navigator {
 
   fun navigateToScene(activity: Activity?) {
     activity?.run {
-      startActivity(Intent(activity, SceneActivity::class.java))
+      startActivity(Intent(this, SceneActivity::class.java))
       //只在这调用的话，退出时没有动画，需要在finish()方法里面添加
       //overridePendingTransition(R.anim.slide_bottom_in, R.anim.alpha_stable)
     }
@@ -73,8 +77,8 @@ object Navigator {
         it.exitTransition = slide
         it.reenterTransition = slide
         it.returnTransition = slide
-        val intent = Intent(activity, SlideActivity::class.java)
-        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(activity).toBundle())
+        val intent = Intent(this, SlideActivity::class.java)
+        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
       }
     }
   }
@@ -88,8 +92,8 @@ object Navigator {
         it.exitTransition = explode
         it.reenterTransition = explode
         it.returnTransition = explode
-        val intent = Intent(activity, ExplodeActivity::class.java)
-        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(activity).toBundle())
+        val intent = Intent(this, ExplodeActivity::class.java)
+        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
       }
     }
   }
@@ -103,44 +107,46 @@ object Navigator {
         it.exitTransition = fade
         it.reenterTransition = fade
         it.returnTransition = fade
-        val intent = Intent(activity, FadeActivity::class.java)
-        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(activity).toBundle())
+        val intent = Intent(this, FadeActivity::class.java)
+        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
       }
     }
   }
 
   fun navigateToSharedElement(activity: Activity?, view: View, url: String?) {
     activity?.run {
-      val intent = Intent(activity, SharedElementActivity::class.java)
+      val intent = Intent(this, SharedElementActivity::class.java)
       intent.putExtra(EXTRA_URL, url)
       startActivity(
         intent, ActivityOptions.makeSceneTransitionAnimation(
-          activity,
+          this,
           view, view.transitionName
         ).toBundle()
       )
     }
   }
 
-  fun navigateToTransitionWithAnim(activity: Activity?, view: View, url: String?) {
+  fun navigateToSharedElementDetail(
+    activity: Activity?,
+    listItem: ListItem,
+    vararg pair: Pair<View, String>
+  ) {
     activity?.run {
-      window?.let {
-        //it.enterTransition = TransitionInflater.from(this).inflateTransition(R.transition.explode)
-        //it.exitTransition = TransitionInflater.from(this).inflateTransition(R.transition.explode)
-
-//        it.enterTransition = Slide().setDuration(1000)
-//        it.exitTransition = Slide().setDuration(1000)
-      }
-      val intent = Intent(activity, TransitionActivity::class.java)
-      intent.putExtra(EXTRA_URL, url)
-      startActivity(
-        intent, ActivityOptions.makeSceneTransitionAnimation(
-          activity,
-          view, view.transitionName
-        ).toBundle()
-      )
+      val intent = Intent(this, SharedElementDetailActivity::class.java)
+      intent.putExtra(EXTRA_DATA, listItem)
+      startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this, *pair).toBundle())
     }
   }
 
 
+  fun navigateToCircularReveal(activity: Activity?, view: View, url: String?) {
+    activity?.run {
+      val intent = Intent(this, CircularRevealActivity::class.java)
+      intent.putExtra(EXTRA_URL, url)
+      startActivity(
+        intent,
+        ActivityOptions.makeSceneTransitionAnimation(this, view, view.transitionName).toBundle()
+      )
+    }
+  }
 }

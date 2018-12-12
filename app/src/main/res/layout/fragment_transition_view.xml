@@ -20,14 +20,14 @@
         android:layout_height="match_parent"
         android:inAnimation="@android:anim/fade_in"
         android:outAnimation="@android:anim/fade_out"
-        app:displayedChildId="@+id/recyclerViewTrans"
+        app:displayedChildId="@+id/recyclerView"
         displayedChildStatus="@{transitionViewModel.viewStatus}"
         >
       <android.support.v7.widget.RecyclerView
-          android:id="@+id/recyclerViewTrans"
+          android:id="@+id/recyclerView"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          app:loadAdapter="@{transitionViewModel.data}"
+          loadAdapter="@{transitionViewModel.data}"
           />
     </com.linecy.interesting.ui.misc.ViewContainer>
   </android.support.v4.widget.SwipeRefreshLayout>

@@ -11,7 +11,7 @@ import com.linecy.interesting.ui.BaseFragment
 import com.linecy.interesting.ui.home.adapter.TransitionAdapter
 import com.linecy.interesting.ui.misc.ViewContainer
 import com.linecy.interesting.viewmodel.TransitionViewModel
-import kotlinx.android.synthetic.main.fragment_transition_view.recyclerViewTrans
+import kotlinx.android.synthetic.main.fragment_transition_view.recyclerView
 import kotlinx.android.synthetic.main.fragment_transition_view.swipeLayout
 import kotlinx.android.synthetic.main.fragment_transition_view.viewContainer
 
@@ -19,8 +19,22 @@ import kotlinx.android.synthetic.main.fragment_transition_view.viewContainer
  * Transition相关。
  *
  * recyclerView 的id与RecyclerViewFragment 布局的recyclerView 的id一致时，会在创建的时候生成一样的id
- * 然后在bindData的时候导致两个页面数据都没有办法成功，虽然执行到了BindUIUtil类的对应方法，但是页面数据未成功加载
- * 空数据和错误页能够成功加载，目前未找到根源问题，只是换了一个id解决此问题。
+ * 然后在bindData的时候导致两个页面数据都没有办法成功，虽然执行到了BindUIUtil类的对应方法，但是页面数据未成功。
+ * 加载空数据和错误页能够成功加载，目前未找到根源问题，只是换了一个id解决此问题。
+ *
+ * 因为设置了相同的id，最终在R.id里面身生成的是一个id，在同一个布局中，在setContentView后，当前id是唯一的，
+ * 所以在当前View树中可行；但是我在设置的时候，将作用域指向了activity?.run{}，在这个this里面我指向了TransitionViewFragment和
+ * RecyclerViewFragment的父activity，导致他从activity开始遍历id，而RecyclerViewFragment是最先添加的，导致后面
+ * 获取到的recyclerView是RecyclerViewFragment里面的，将当前类转换成kotlin byteCode可知这点。
+ * FragmentActivity var2 = var10;
+ * Intrinsics.checkExpressionValueIsNotNull(var2, "this");
+ * TransitionAdapter transitionAdapter = new TransitionAdapter((Activity)var2);
+ * RecyclerView var5 = (RecyclerView)var2.findViewById(id.recyclerView);
+
+ * 所以我们才将当前页面的adapter设置到了第一个，同时导致当前页面的adapter没有设置，而在bindUIUtil方法里面是，
+ * 对于第一个页面，我们的adapter不匹配设置的类型，所以跳过了数据填充，而第二个页面的adapter==null，导致也没有成功
+ * 填充数据。所以注意作用域！！！！
+ *
  *
  * @author by linecy.
  */
@@ -40,10 +54,11 @@ class TransitionViewFragment : BaseFragment<FragmentTransitionViewBinding>(),
     viewContainer.setErrorCallback(this)
     viewModel = viewModelProvider.get(TransitionViewModel::class.java)
     fragmentBinding?.setVariable(BR.transitionViewModel, viewModel)
-    activity?.run {
+    //注意作用域
+    activity?.let {
       val transitionAdapter =
-        TransitionAdapter(this)
-      recyclerViewTrans.run {
+        TransitionAdapter(it)
+      recyclerView.run {
         adapter = transitionAdapter
         layoutManager = LinearLayoutManager(context)
       }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+  <ImageView
+      android:id="@+id/imageView"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:scaleType="fitXY"
+      android:transitionName="@string/transitionNameImage"
+      app:layout_constraintBottom_toTopOf="@id/tvName"
+      app:layout_constraintDimensionRatio="16:9"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:ignore="ContentDescription"
+      tools:src="@color/colorPrimary"
+      />
+  <TextView
+      android:id="@+id/tvName"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:background="@color/colorPrimary"
+      android:padding="@dimen/padding_normal"
+      android:textColor="@color/white"
+      android:textSize="@dimen/font_normal"
+      android:transitionName="@string/transitionNameTextView"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="@+id/imageView"
+      app:layout_constraintStart_toStartOf="@+id/imageView"
+      app:layout_constraintTop_toBottomOf="@+id/imageView"
+      tools:text="效果"
+      />
+</android.support.constraint.ConstraintLayout>

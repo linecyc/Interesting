@@ -31,9 +31,6 @@
         android:name=".ui.gaussianblur.GaussianBlurActivity"
         android:screenOrientation="portrait"/>
     <activity
-        android:name=".ui.transition.TransitionActivity"
-        android:screenOrientation="portrait"/>
-    <activity
         android:name=".ui.transition.SceneActivity"
         android:screenOrientation="portrait"/>
 
@@ -49,7 +46,12 @@
     <activity
         android:name=".ui.transition.SharedElementActivity"
         android:screenOrientation="portrait"/>
-
+    <activity
+        android:name=".ui.transition.SharedElementDetailActivity"
+        android:screenOrientation="portrait"/>
+    <activity
+        android:name=".ui.transition.CircularRevealActivity"
+        android:screenOrientation="portrait"/>
   </application>
 
 </manifest>

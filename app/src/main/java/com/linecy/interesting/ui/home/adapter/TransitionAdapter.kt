@@ -86,10 +86,17 @@ class TransitionAdapter(private val activity: Activity) : RecyclerView.Adapter<I
             2 -> Navigator.navigateToExplode(activity)
             3 -> Navigator.navigateToFade(activity)
             4 -> {
-              if (View.VISIBLE == binding.ivFront.visibility) {
+              if (View.VISIBLE == binding.layoutFront.visibility) {
                 Navigator.navigateToSharedElement(activity, binding.ivFront, url)
               } else {
                 Navigator.navigateToSharedElement(activity, binding.ivBack, url)
+              }
+            }
+            5 -> {
+              if (View.VISIBLE == binding.layoutFront.visibility) {
+                Navigator.navigateToCircularReveal(activity, binding.ivFront, url)
+              } else {
+                Navigator.navigateToCircularReveal(activity, binding.ivBack, url)
               }
             }
           }

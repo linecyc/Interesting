@@ -7,9 +7,12 @@ import android.os.Bundle
 import android.support.annotation.DrawableRes
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import com.linecy.interesting.R
+import com.linecy.interesting.ui.home.BottomDrawerFragment
+import com.linecy.interesting.ui.home.SearchFragment
 import kotlinx.android.synthetic.main.layout_base.baseView
 import kotlinx.android.synthetic.main.layout_base.bottomAppBar
 import kotlinx.android.synthetic.main.layout_base.bottomFab
@@ -48,6 +51,35 @@ abstract class BaseActivity<VB : ViewDataBinding> : AppCompatActivity() {
       true
     } else {
       super.onCreateOptionsMenu(menu)
+    }
+  }
+
+  override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+    if (showBottomAppBar) {
+      return when (item?.itemId) {
+        R.id.navigation_search -> {
+          val view = findViewById<View>(R.id.navigation_search)
+          view.transitionName = getString(R.string.transitionNameImage)
+          SearchFragment
+            .show(
+              supportFragmentManager,
+              SearchFragment::class.java.simpleName,
+              view
+            )
+          true
+        }
+        R.id.navigation_menu
+        -> {
+          BottomDrawerFragment.getInstance(R.menu.bottom_normal_menu).show(
+            supportFragmentManager,
+            BottomDrawerFragment::class.java.simpleName
+          )
+          true
+        }
+        else -> super.onOptionsItemSelected(item)
+      }
+    } else {
+      return super.onOptionsItemSelected(item)
     }
   }
 

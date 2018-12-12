@@ -8,7 +8,7 @@ import com.linecy.interesting.ui.BaseFragment
 /**
  * @author by linecy.
  */
-class DetailFragment : BaseFragment<ViewDataBinding>() {
+class RotateFragment : BaseFragment<ViewDataBinding>() {
 
   override fun layoutResId(): Int {
     return R.layout.fragment_detail

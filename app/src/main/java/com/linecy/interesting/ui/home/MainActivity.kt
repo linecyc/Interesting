@@ -23,7 +23,7 @@ class MainActivity : BaseActivity<ViewDataBinding>() {
     showSystemBottomNavigation()
     viewPager.run {
       adapter = FragmentAdapter(
-        listOf(RecyclerViewFragment(), TransitionViewFragment(), DetailFragment()),
+        listOf(RecyclerViewFragment(), TransitionViewFragment(), RotateFragment()),
         supportFragmentManager
       )
       offscreenPageLimit = 2

@@ -69,8 +69,7 @@ class TransitionViewModel : ViewModel() {
             }
             else -> {
               //has data
-              val size = 1 + random.nextInt(20)
-              val list = Response.createTransitionData(size)
+              val list = Response.createTransitionData()
               it.data.set(list)
               it.isRefreshing.set(false)
               it.viewStatus.set(1)

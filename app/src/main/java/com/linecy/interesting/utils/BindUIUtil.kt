@@ -15,6 +15,7 @@ import com.linecy.interesting.ui.adapter.CustomAdapter
 import com.linecy.interesting.ui.home.adapter.HeaderViewAdapter
 import com.linecy.interesting.ui.home.adapter.RecyclerViewAdapter
 import com.linecy.interesting.ui.home.adapter.TransitionAdapter
+import com.linecy.interesting.ui.misc.CircleTransformation
 import com.linecy.interesting.ui.misc.GaussianBlurTransformation
 import com.linecy.interesting.ui.misc.RoundTransformation
 
@@ -38,6 +39,15 @@ object BindUIUtil {
   fun loadRoundUrl(imageView: ImageView, url: String?) {
     url?.let {
       Glide.with(imageView).load(it).apply(RequestOptions.bitmapTransform(RoundTransformation()))
+        .into(imageView)
+    }
+  }
+
+  @JvmStatic
+  @BindingAdapter("loadCircleUrl")
+  fun loadCircleUrl(imageView: ImageView, url: String?) {
+    url?.let {
+      Glide.with(imageView).load(it).apply(RequestOptions.bitmapTransform(CircleTransformation()))
         .into(imageView)
     }
   }

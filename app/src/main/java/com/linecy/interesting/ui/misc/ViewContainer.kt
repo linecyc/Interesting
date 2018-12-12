@@ -47,7 +47,6 @@ class ViewContainer(context: Context, attrs: AttributeSet?) : BatterViewAnimator
 
   override fun setDisplayedChildId(id: Int) {
     super.setDisplayedChildId(id)
-    Timber.i("--------------->>id:$id")
     when (id) {
       R.id.error -> {
         error.visibility = View.VISIBLE

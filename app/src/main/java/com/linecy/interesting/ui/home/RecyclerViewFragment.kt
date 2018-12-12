@@ -42,8 +42,8 @@ class RecyclerViewFragment : BaseFragment<FragmentRecyclerViewBinding>(), OnRefr
     viewContainer.setErrorCallback(this)
     viewModel = viewModelProvider.get(RecyclerViewViewModel::class.java)
     fragmentBinding?.setVariable(BR.recyclerViewViewModel, viewModel)
-    activity?.run {
-      val recyclerViewAdapter = RecyclerViewAdapter(this)
+    activity?.let {
+      val recyclerViewAdapter = RecyclerViewAdapter(it)
       recyclerView.run {
         adapter = recyclerViewAdapter
         val manager = LinearLayoutManager(context)

@@ -5,11 +5,13 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.transition.Slide
 import android.view.Gravity
+import com.linecy.interesting.BR
 import com.linecy.interesting.R
+import com.linecy.interesting.R.layout
 import com.linecy.interesting.data.Response
 import com.linecy.interesting.ui.BaseActivity
-import com.linecy.interesting.ui.adapter.TestAdapter
-import kotlinx.android.synthetic.main.activity_transiton.recyclerView
+import com.linecy.interesting.ui.adapter.CustomAdapter
+import kotlinx.android.synthetic.main.layout_recycler_view.recyclerView
 
 
 /**
@@ -24,7 +26,7 @@ import kotlinx.android.synthetic.main.activity_transiton.recyclerView
 class SlideActivity : BaseActivity<ViewDataBinding>() {
 
   override fun layoutResId(): Int {
-    return R.layout.activity_transiton
+    return R.layout.layout_recycler_view
   }
 
   override fun onInitView(savedInstanceState: Bundle?) {
@@ -38,7 +40,7 @@ class SlideActivity : BaseActivity<ViewDataBinding>() {
       it.returnTransition = slide
     }
     setBottomFabImageResource(R.drawable.ic_arrow_upward_white_24dp)
-    val adapter = TestAdapter(this)
+    val adapter = CustomAdapter(this, intArrayOf(layout.layout_item), intArrayOf(BR.item))
     recyclerView.layoutManager = LinearLayoutManager(this)
     recyclerView.adapter = adapter
     adapter.refreshData(Response.createListData(10))

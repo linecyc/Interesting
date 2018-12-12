@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+  <data>
+    <variable
+        name="searchItem"
+        type="String"
+        />
+  </data>
+  <TextView
+      android:id="@+id/tvSearchItem"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:padding="@dimen/padding_normal"
+      android:text="@{searchItem}"
+      tools:text="@string/app_name"
+      />
+</layout>

@@ -32,7 +32,7 @@ object Response {
   }
 
 
-  fun createTransitionData(size: Int): List<ListItem> {
+  fun createTransitionData(): List<ListItem> {
     val list = ArrayList<ListItem>()
 
     list.add(
@@ -74,6 +74,23 @@ object Response {
       )
     )
 
+    list.add(
+      ListItem(
+        url = Constants.PHOTO2_URL,
+        name = Constants.CIRCULAR_REVEAL,
+        detail = "揭露动画，返回一个圆形的裁剪动画，通常可以用于显示、隐藏动画，同时起始位置可以动态设置"
+      )
+    )
+
+    return list
+  }
+
+
+  fun createStringList(size: Int): List<String> {
+    val list = ArrayList<String>(size)
+    for (i in 1..size) {
+      list.add("搜索$i")
+    }
     return list
   }
 }
