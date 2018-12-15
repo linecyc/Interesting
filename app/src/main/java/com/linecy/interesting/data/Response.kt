@@ -82,6 +82,14 @@ object Response {
       )
     )
 
+    list.add(
+      ListItem(
+        url = Constants.PHOTO1_URL,
+        name = Constants.ROTATE,
+        detail = "翻转动画，可以分别沿着X、Y、Z轴做翻转动画"
+      )
+    )
+
     return list
   }
 

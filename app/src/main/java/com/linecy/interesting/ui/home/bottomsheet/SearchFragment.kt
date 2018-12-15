@@ -1,4 +1,4 @@
-package com.linecy.interesting.ui.home
+package com.linecy.interesting.ui.home.bottomsheet
 
 import android.annotation.SuppressLint
 import android.os.Bundle

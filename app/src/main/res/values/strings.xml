@@ -30,4 +30,10 @@
   <string name="scene6">Scene6 环：红，绿变大</string>
   <string name="slide">将视图从边缘（上、下、左、右）移入和移出，可以设置插值器来改变速率,可通过代码和创建transition动画来实现</string>
   <string name="circular_reveal">点击不同颜色图片展示不同的圆形剪辑圈效果,展示或隐藏动画，起始位置可以动态设置</string>
+
+  <!---->
+  <string name="animation">animation</string>
+  <string name="animator">animator</string>
+  <string name="fragment_v4">fragmentV4\nanimation</string>
+  <string name="fragment_v11">fragmentV11\nanimator</string>
 </resources>

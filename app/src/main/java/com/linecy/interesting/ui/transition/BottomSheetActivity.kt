@@ -13,7 +13,7 @@ import com.linecy.interesting.R.layout
 import com.linecy.interesting.data.Response
 import com.linecy.interesting.ui.BaseActivity
 import com.linecy.interesting.ui.adapter.CustomAdapter
-import com.linecy.interesting.ui.home.BottomDrawerFragment
+import com.linecy.interesting.ui.home.bottomsheet.BottomDrawerFragment
 import kotlinx.android.synthetic.main.layout_recycler_view.recyclerView
 
 

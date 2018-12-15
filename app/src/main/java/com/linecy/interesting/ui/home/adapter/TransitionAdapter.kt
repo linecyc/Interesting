@@ -99,6 +99,9 @@ class TransitionAdapter(private val activity: Activity) : RecyclerView.Adapter<I
                 Navigator.navigateToCircularReveal(activity, binding.ivBack, url)
               }
             }
+            6 -> {
+              Navigator.navigateToRotate(activity)
+            }
           }
         }
       }

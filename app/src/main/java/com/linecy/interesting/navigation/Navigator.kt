@@ -2,6 +2,7 @@ package com.linecy.interesting.navigation
 
 import android.app.Activity
 import android.app.ActivityOptions
+import android.content.Context
 import android.content.Intent
 import android.transition.Explode
 import android.transition.Fade
@@ -15,6 +16,7 @@ import com.linecy.interesting.ui.transition.BottomSheetActivity
 import com.linecy.interesting.ui.transition.CircularRevealActivity
 import com.linecy.interesting.ui.transition.ExplodeActivity
 import com.linecy.interesting.ui.transition.FadeActivity
+import com.linecy.interesting.ui.transition.RotateActivity
 import com.linecy.interesting.ui.transition.SceneActivity
 import com.linecy.interesting.ui.transition.SharedElementActivity
 import com.linecy.interesting.ui.transition.SharedElementDetailActivity
@@ -148,5 +150,9 @@ object Navigator {
         ActivityOptions.makeSceneTransitionAnimation(this, view, view.transitionName).toBundle()
       )
     }
+  }
+
+  fun navigateToRotate(context: Context) {
+    context.startActivity(Intent(context, RotateActivity::class.java))
   }
 }

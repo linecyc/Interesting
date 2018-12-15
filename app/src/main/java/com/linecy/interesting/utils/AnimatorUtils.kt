@@ -7,7 +7,10 @@ import android.support.v4.view.ViewCompat
 import android.support.v4.view.ViewPropertyAnimatorListener
 import android.support.v4.view.animation.LinearOutSlowInInterpolator
 import android.view.View
+import android.view.animation.AccelerateInterpolator
+import android.view.animation.DecelerateInterpolator
 import com.linecy.interesting.ui.misc.ScaleDownShowBehavior.BottomAppBarAnimatorListener
+import com.linecy.interesting.ui.weight.Rotate3dAnimator
 
 /**
  * 动画工具类。
@@ -200,7 +203,6 @@ object AnimatorUtils {
     set.start()
   }
 
-
   /**
    * 设置视角，不然翻转会超出屏幕
    */
@@ -208,5 +210,38 @@ object AnimatorUtils {
     val distance = 16000
     val scale = view.resources.displayMetrics.density * distance
     view.cameraDistance = scale
+  }
+
+  fun createExitAnimator(): Rotate3dAnimator {
+    return Rotate3dAnimator(
+      0f,
+      90f,
+      0.5f,
+      0.5f,
+      0.5f,
+      true,
+      Rotate3dAnimator.ORIENTATION_Y,
+      Rotate3dAnimator.TYPE_SCALE
+    ).apply {
+      duration = 300
+      interpolator = AccelerateInterpolator()
+    }
+  }
+
+  fun createEnterAnimator(): Rotate3dAnimator {
+    return Rotate3dAnimator(
+      -90f,
+      0f,
+      0.5f,
+      0.5f,
+      0.5f,
+      false,
+      Rotate3dAnimator.ORIENTATION_Y,
+      Rotate3dAnimator.TYPE_SCALE
+    ).apply {
+      duration = 600
+      startDelay = 300
+      interpolator = DecelerateInterpolator()
+    }
   }
 }

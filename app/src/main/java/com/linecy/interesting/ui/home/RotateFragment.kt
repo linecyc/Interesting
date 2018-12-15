@@ -11,7 +11,7 @@ import com.linecy.interesting.ui.BaseFragment
 class RotateFragment : BaseFragment<ViewDataBinding>() {
 
   override fun layoutResId(): Int {
-    return R.layout.fragment_detail
+    return R.layout.fragment_rotation_vector
   }
 
   override fun onInitView(savedInstanceState: Bundle?) {

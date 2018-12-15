@@ -33,6 +33,7 @@ object Constants {
   const val FADE_TRANSITION = "FADE"
   const val SHARED_ELEMENT = "SHARED ELEMENT"
   const val CIRCULAR_REVEAL = "CIRCULAR REVEAL"
+  const val ROTATE = "ROTATE"
 
 
 }

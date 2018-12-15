@@ -11,8 +11,8 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import com.linecy.interesting.R
-import com.linecy.interesting.ui.home.BottomDrawerFragment
-import com.linecy.interesting.ui.home.SearchFragment
+import com.linecy.interesting.ui.home.bottomsheet.BottomDrawerFragment
+import com.linecy.interesting.ui.home.bottomsheet.SearchFragment
 import kotlinx.android.synthetic.main.layout_base.baseView
 import kotlinx.android.synthetic.main.layout_base.bottomAppBar
 import kotlinx.android.synthetic.main.layout_base.bottomFab

@@ -9,7 +9,7 @@ import android.view.MenuItem
 import android.widget.ImageView
 import com.linecy.interesting.R
 import com.linecy.interesting.ui.BaseActivity
-import com.linecy.interesting.ui.home.BottomDrawerFragment
+import com.linecy.interesting.ui.home.bottomsheet.BottomDrawerFragment
 import com.linecy.interesting.utils.DisplayUtils
 import kotlinx.android.synthetic.main.activity_scene.rootScene
 
