@@ -1,3 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<set>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+  <objectAnimator
+      android:duration="@integer/anim_duration_long"
+      android:interpolator="@android:interpolator/decelerate_quint"
+      android:propertyName="rotationX"
+      android:startOffset="@integer/anim_duration_normal"
+      android:valueFrom="-90f"
+      android:valueTo="0f"
+      android:valueType="floatType">
+  </objectAnimator>
 </set>

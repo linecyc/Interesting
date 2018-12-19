@@ -3,13 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragmentLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.linecy.interesting.ui.home.MainActivity"
     >
-  <com.linecy.interesting.ui.weight.NoScrollViewPager
-      android:id="@+id/viewPager"
+  <FrameLayout
+      android:id="@+id/fragmentLayout"
       android:layout_width="0dp"
       android:layout_height="0dp"
       app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
@@ -28,7 +27,7 @@
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/viewPager"
+      app:layout_constraintTop_toBottomOf="@id/fragmentLayout"
       app:menu="@menu/navigation"
       />
 </android.support.constraint.ConstraintLayout>

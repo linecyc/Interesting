@@ -2,15 +2,12 @@ package com.linecy.interesting.ui.home
 
 import android.databinding.ViewDataBinding
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
-import android.support.v4.view.ViewPager.OnPageChangeListener
+import android.support.annotation.DrawableRes
+import android.support.v4.app.FragmentTransaction
 import com.linecy.interesting.R
 import com.linecy.interesting.R.layout
 import com.linecy.interesting.ui.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.bottomNavigation
-import kotlinx.android.synthetic.main.activity_main.viewPager
 
 class MainActivity : BaseActivity<ViewDataBinding>() {
 
@@ -19,37 +16,24 @@ class MainActivity : BaseActivity<ViewDataBinding>() {
   }
 
   override fun onInitView(savedInstanceState: Bundle?) {
+
     hideBottomAppBar()
     showSystemBottomNavigation()
-    viewPager.run {
-      adapter = FragmentAdapter(
-        listOf(RecyclerViewFragment(), TransitionViewFragment(), RotateFragment()),
-        supportFragmentManager
-      )
-      offscreenPageLimit = 2
-      currentItem = 0
-      addOnPageChangeListener(object : OnPageChangeListener {
-        override fun onPageScrollStateChanged(p0: Int) {}
-
-        override fun onPageScrolled(p0: Int, p1: Float, p2: Int) {}
-
-        override fun onPageSelected(p0: Int) {
-          bottomNavigation.menu.getItem(p0).isChecked = true
-        }
-      })
+    if (savedInstanceState == null) {
+      setCurrentItem(0)
     }
     bottomNavigation.setOnNavigationItemSelectedListener {
       return@setOnNavigationItemSelectedListener when (it.itemId) {
         R.id.navigation_recycler_view -> {
-          viewPager.currentItem = 0
+          setCurrentItem(0)
           true
         }
         R.id.navigation_transition -> {
-          viewPager.currentItem = 1
+          setCurrentItem(1)
           true
         }
         R.id.navigation_profile -> {
-          viewPager.currentItem = 2
+          setCurrentItem(2)
           true
         }
         else -> false
@@ -57,14 +41,41 @@ class MainActivity : BaseActivity<ViewDataBinding>() {
     }
   }
 
-  inner class FragmentAdapter(private val list: List<Fragment>, fm: FragmentManager?) :
-    FragmentPagerAdapter(fm) {
-    override fun getItem(p0: Int): Fragment {
-      return list[p0]
-    }
+  private fun setCurrentItem(position: Int) {
+    val ft = supportFragmentManager.beginTransaction()
+    ft.setCustomAnimations(
+      R.animator.rotate_3d_enter,
+      R.animator.rotate_3d_exit
+    )
+    val existence =
+      when (position) {
+        0 -> supportFragmentManager.findFragmentByTag(RecyclerViewFragment::class.java.simpleName)
+        1 -> supportFragmentManager.findFragmentByTag(TransitionViewFragment::class.java.simpleName)
+        else -> supportFragmentManager.findFragmentByTag(RotateFragment::class.java.simpleName)
+      }
+    existence?.run {
+      ft.show(this)
+    } ?: create(position, ft)
 
-    override fun getCount(): Int {
-      return list.size
+    supportFragmentManager.fragments.filter {
+      it != existence
+    }.forEach {
+      ft.hide(it)
     }
+    ft.commit()
+    bottomNavigation.menu.getItem(position).isChecked = true
+  }
+
+  private fun create(position: Int, ft: FragmentTransaction) {
+    val create = when (position) {
+      0 -> RecyclerViewFragment()
+      1 -> TransitionViewFragment()
+      else -> RotateFragment()
+    }
+    ft.add(
+      R.id.fragmentLayout,
+      create,
+      create::class.java.simpleName
+    )
   }
 }

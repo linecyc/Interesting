@@ -33,6 +33,6 @@
   <!--animation duration time(ms)-->
   <integer name="anim_duration_short">250</integer>
   <integer name="anim_duration_normal">500</integer>
-  <integer name="anim_duration_long">1500</integer>
+  <integer name="anim_duration_long">1000</integer>
 
 </resources>
