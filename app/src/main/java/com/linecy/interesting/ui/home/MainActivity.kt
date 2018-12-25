@@ -2,7 +2,6 @@ package com.linecy.interesting.ui.home
 
 import android.databinding.ViewDataBinding
 import android.os.Bundle
-import android.support.annotation.DrawableRes
 import android.support.v4.app.FragmentTransaction
 import com.linecy.interesting.R
 import com.linecy.interesting.R.layout
@@ -19,6 +18,8 @@ class MainActivity : BaseActivity<ViewDataBinding>() {
 
     hideBottomAppBar()
     showSystemBottomNavigation()
+    overridePendingTransition(R.anim.trans_right_in, R.anim.trans_left_out)
+
     if (savedInstanceState == null) {
       setCurrentItem(0)
     }
@@ -43,10 +44,7 @@ class MainActivity : BaseActivity<ViewDataBinding>() {
 
   private fun setCurrentItem(position: Int) {
     val ft = supportFragmentManager.beginTransaction()
-    ft.setCustomAnimations(
-      R.animator.rotate_3d_enter,
-      R.animator.rotate_3d_exit
-    )
+    ft.setCustomAnimations(R.anim.rotate_3d_enter, R.anim.rotate_3d_exit)
     val existence =
       when (position) {
         0 -> supportFragmentManager.findFragmentByTag(RecyclerViewFragment::class.java.simpleName)

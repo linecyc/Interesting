@@ -12,6 +12,7 @@ import android.view.Gravity
 import android.view.View
 import com.linecy.interesting.data.ListItem
 import com.linecy.interesting.ui.gaussianblur.GaussianBlurActivity
+import com.linecy.interesting.ui.home.MainActivity
 import com.linecy.interesting.ui.transition.BottomSheetActivity
 import com.linecy.interesting.ui.transition.CircularRevealActivity
 import com.linecy.interesting.ui.transition.ExplodeActivity
@@ -154,5 +155,12 @@ object Navigator {
 
   fun navigateToRotate(context: Context) {
     context.startActivity(Intent(context, RotateActivity::class.java))
+  }
+
+  fun navigateToHome(activity: Activity?) {
+    activity?.run {
+      val intent = Intent(this, MainActivity::class.java)
+      startActivity(intent)
+    }
   }
 }

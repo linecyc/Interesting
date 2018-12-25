@@ -53,4 +53,10 @@
       @dimen/mtrl_bottomappbar_fab_cradle_vertical_offset
     </item>
   </style>
+
+  <style name="FullScreen" parent="AppTheme.Light">
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowBackground">@null</item>
+  </style>
 </resources>

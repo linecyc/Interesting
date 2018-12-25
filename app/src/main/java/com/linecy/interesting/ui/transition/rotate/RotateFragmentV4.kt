@@ -23,6 +23,11 @@ import com.linecy.interesting.utils.AnimatorUtils
  * v11的FragmentManager:fragment add后，动画执行前会设置alpha=1
  * v4的FragmentManager:fragment add后，动画执行前会设置alpha=0
  *
+ * animator 和 animation动画执行的时机不一致，对于第一次动画：
+ * animator:onCreate->onCreateAnimator->exit animator start
+ * animation:onCreate->onCreateAnimation-onCreateView->onViewCreated
+ * ->onStart->onResume->exit animator start
+ *
  * 所以Animator在第二个fragment show，第一个hide的时候，此时第二个才add，这个时候就会导致第二个
  * fragment会在第一个fragment上面，导致动画重叠，异常显示，因此设置alpha=0
  * {@link com.linecy.interesting.ui.transition.rotate.RotateFragmentV11}
